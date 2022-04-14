@@ -12,19 +12,12 @@ function index() {
 
 	const [videos, setVideos] = useState([]);
 	const [videosFilted, setVideosFilted] = useState([]);
+  
 	const handleDelete = e => {
-		let decision = confirm("Estas seguro que quieres borrar este video?");
-		if (!decision) return;
-		const id = e.target.id;
-		axios.delete(`http://localhost:4000/trailer/delete/${id}`).then(() => {
-			setVideos(videos.filter(video => video._id !== id));
-		});
-	};
-
-	useEffect(() => {
+    
     MySwal.fire({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
+      title: 'Seguro que quieres borrar este trailer?',
+      text: "No podras recuperarlo!",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -37,8 +30,16 @@ function index() {
           'Your file has been deleted.',
           'success'
         )
+        const id = e.target.id;
+        axios.delete(`http://localhost:4000/trailer/delete/${id}`).then(() => {
+          setVideosFilted(videos.filter(video => video._id !== id));
+        });
       }
     })
+		
+	};
+
+	useEffect(() => {
 		axios("http://localhost:4000/trailer").then(res => {
 			setVideos(res.data.body);
 			setVideosFilted(res.data.body);
