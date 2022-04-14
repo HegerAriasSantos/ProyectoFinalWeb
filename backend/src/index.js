@@ -11,6 +11,9 @@ app.set("port", process.env.PORT || 4000);
 db.connect(process.env.DB_CONNECT);
 
 router(app);
+app.get("/", (req, res) => {
+  res.send("Welcome to the API");
+});
 
 app.listen(app.get("port"), function () {
   console.log(
