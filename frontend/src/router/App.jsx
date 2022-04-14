@@ -27,6 +27,7 @@ const App = () => {
 						<Route element={<Home />} exact path='/' />
 						<Route element={<SearchPage />} exact path='/search/:search' />
 						<Route element={<Nuevo />} exact path='/nuevo' />
+						<Route element={<Loading />} exact path='/loading' />
 						<Route element={<Trailer />} exact path='/trailer/:id' />
 					</Route>
 

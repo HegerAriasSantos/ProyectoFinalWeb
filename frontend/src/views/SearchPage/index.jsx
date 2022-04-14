@@ -1,28 +1,26 @@
 import { useParams } from "react-router";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import useFilter from './../../hook/useFilter';
+import useFilter from "./../../hook/useFilter";
+import ListOfVideos from "../../components/ListOfVideos";
+import "./index.scss";
 
 function index() {
 	const { search } = useParams();
 	const [results, setResults] = useState([]);
 	useEffect(() => {
-    axios.get(`http://localhost:4000/trailer`).then((data)=>{
-      setResults(useFilter(data.data.body, search));
-    })
-  }, [search]);
+		axios.get(`http://localhost:4000/trailer`).then(data => {
+			setResults(useFilter(data.data.body, search));
+		});
+	}, [search]);
 	return (
-		<div>
-			<h1>search: {search}</h1>
-      <ul>
-        {results.map((result) => (
-          <li key={result._id}>
-            <h2>{result.titulo}</h2>
-            <p>{result.reseña}</p>
-          </li>
-        ))}
-      </ul>
-
+		<div className='Search'>
+			<h1>Busqueda: {search}</h1>
+			{results.length > 0 ? (
+				<ListOfVideos videos={results} />
+			) : (
+				<h2>No hay resultados</h2>
+			)}
 		</div>
 	);
 }

@@ -16,11 +16,11 @@ function index() {
 		e.preventDefault();
 		if (search.length <= 0) {
 			MySwal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'No se puede realizar una busqueda vacia!',
-      })
-      return;
+				icon: "error",
+				title: "Oops...",
+				text: "No se puede realizar una busqueda vacia!",
+			});
+			return;
 		}
 		navigate(`/search/${search}`);
 	};
@@ -30,20 +30,18 @@ function index() {
 			<div className='Navbar'>
 				<Link to={`/`}>
 					<div className='Navbar__logo'>
-						<img
-							src='https://www.themoviedb.org/assets/2/v4/logos/primary-green-d70eebe18a5eb5b166d5c1ef0796715b8d1a2cbc698f96d311d62f894ae87085.svg'
-							alt='logo'
-						/>
+						<span>HFLJ Movies</span>
 					</div>
 				</Link>
 				<div className='Navbar__search'>
 					<form onSubmit={handleSubmit}>
 						<input
-							type='text'
+							type='search'
 							placeholder='Search'
 							value={search}
 							onChange={handleChange}
 						/>
+            <button>Search</button>
 					</form>
 				</div>
 			</div>

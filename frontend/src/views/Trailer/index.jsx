@@ -1,29 +1,60 @@
 import { useParams } from "react-router";
-import { useState, useEffect } from 'react'
-import axios from 'axios'
+import { useState, useEffect } from "react";
+import axios from "axios";
+import "./index.scss";
 
 function index() {
-  const { id } = useParams();
-  const [trailer, setTrailer] = useState({})
-  useEffect(() => {
-    axios.get(`http://localhost:4000/trailer/${id}`)
-      .then(res => {
-        setTrailer(res.data.body);
-      })
-  }, [])
-  return (
-    <div>
-      triler/{id}
-      <br />
-      <p>{trailer._id}</p>
-      <p>{trailer.actores}</p>
-      <p>{trailer.año}</p>
-      <p>{trailer.director}</p>
-      <p>{trailer.titulo}</p>
-      <p>{trailer.reseña}</p>
-      <p>{trailer.portada}</p>
-    </div>
-  )
+	const { id } = useParams();
+	const [trailer, setTrailer] = useState({});
+	const [isValidated, setIsValidated] = useState(false);
+	useEffect(() => {
+		axios.get(`http://localhost:4000/trailer/${id}`).then(res => {
+			setTrailer(res.data.body);
+		});
+	}, []);
+
+	return (
+		<div className='trailer'>
+			<div className='trailer__info'>
+				<div className='trailer__info__portada'>
+					<img
+						src={trailer.portada}
+						alt={`Portada de la pelicula ${trailer.titulo}`}
+					/>
+				</div>
+				<div className='trailer__info__description'>
+					<div className='titulo'>
+						<p>{trailer.titulo}</p>
+					</div>
+					<div className='info'>
+						<p>
+							Director: <strong>{trailer.director}</strong>
+						</p>
+						<p>
+							Actores: <strong>{trailer.actores} </strong>
+						</p>
+						<p>
+							Año: <strong>{trailer.año} </strong>
+						</p>
+					</div>
+					<p>{trailer.reseña}</p>
+				</div>
+			</div>
+
+			<div className='trailer__video'>
+				<iframe
+					src={
+						false
+							? trailer.src
+							: "https://www.youtube.com/embed/z9ZqsviNASs"
+					}
+					title='YouTube video player'
+					frameBorder='0'
+					allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+					allowFullScreen></iframe>
+			</div>
+		</div>
+	);
 }
 
-export default index
+export default index;

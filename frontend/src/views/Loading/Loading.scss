@@ -2,7 +2,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-color: rgba($color: rgb(245, 245, 245), $alpha: 0.9);
+  background-color: #131313;
 	min-height: 100vh;
 }
 .lds-ellipsis {
@@ -17,7 +17,7 @@
 	width: 13px;
 	height: 13px;
 	border-radius: 50%;
-	background: #0f52ba;
+	background: #d7d7d7;
 	animation-timing-function: cubic-bezier(0, 1, 1, 0);
 }
 .lds-ellipsis div:nth-child(1) {
