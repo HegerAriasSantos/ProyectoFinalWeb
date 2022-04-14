@@ -1,16 +1,21 @@
-.Navbar {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 0.5rem 1rem;
-	background-color: #fff;
-	border-bottom: 1px solid #e5e5e5;
-	&__logo {
-    width: 70px;
-		img {
-			width: 100%;
-			height: 100%;
-      object-fit: contain;
-		}
-	}
+.NavbarWrapper{
+  background-color: #ffca28;  
+  .Navbar {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid #e5e5e5;
+    &__logo {
+      width: 70px;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+  
 }

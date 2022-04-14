@@ -3,9 +3,9 @@
 	"version": "1.0.0",
 	"description": "",
 	"main": "index.js",
-  "engines": {
-    "node": ">=17.0.0"
-  },
+	"engines": {
+		"node": ">=17.0.0"
+	},
 	"scripts": {
 		"build": "node src/index.js"
 	},

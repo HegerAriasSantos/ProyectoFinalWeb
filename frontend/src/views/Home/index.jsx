@@ -12,7 +12,7 @@ function index() {
   }, [])
 
   return (
-    <div>
+    <div className=''>
       <h1>Home</h1>
       {
         videos.map(video => 

@@ -4,8 +4,12 @@ import axios from "axios";
 import useFilter from "./../../hook/useFilter";
 import Video from "../../components/AdminVideo";
 import "./index.scss";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 function index() {
+	const MySwal = withReactContent(Swal);
+
 	const [videos, setVideos] = useState([]);
 	const [videosFilted, setVideosFilted] = useState([]);
 	const handleDelete = e => {
@@ -18,6 +22,23 @@ function index() {
 	};
 
 	useEffect(() => {
+    MySwal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        MySwal.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success'
+        )
+      }
+    })
 		axios("http://localhost:4000/trailer").then(res => {
 			setVideos(res.data.body);
 			setVideosFilted(res.data.body);
