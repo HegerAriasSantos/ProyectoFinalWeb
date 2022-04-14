@@ -1,19 +1,17 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
+import "./index.scss";
 
 function index(props) {
-  const { src, titulo, actores, año, id } = props
+  const { src, titulo, actores, año, id, portada } = props;
 
   return (
-    <div className='videoWrapper'>
-      <iframe className='videoWrapper__video' src={src}  title={titulo}  allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+    <div className="videoWrapper">
+      <img className="videoWrapper__video" src={portada} title={titulo} />
       <Link to={`/trailer/${id}`}>Link</Link>
       <h2>{titulo}</h2>
-      <p>{actores}</p>
-      <p>{id}</p>
-      <p>{año}</p>
     </div>
-  )
+  );
 }
 
-export default index
+export default index;
