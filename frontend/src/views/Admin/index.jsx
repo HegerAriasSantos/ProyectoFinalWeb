@@ -3,16 +3,16 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import useFilter from "./../../hook/useFilter";
 import Video from "../../components/AdminVideo";
-import "./index.scss";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import "./index.scss";
 
 function index() {
 	const MySwal = withReactContent(Swal);
 
 	const [videos, setVideos] = useState([]);
 	const [videosFilted, setVideosFilted] = useState([]);
-  
+
 	const handleDelete = e => {
     
     MySwal.fire({
@@ -36,20 +36,17 @@ function index() {
         });
       }
     })
-		
 	};
-
 	useEffect(() => {
 		axios("http://localhost:4000/trailer").then(res => {
 			setVideos(res.data.body);
 			setVideosFilted(res.data.body);
 		});
 	}, []);
-
 	return (
 		<div className='admin'>
 			<div className='admin__header'>
-				<h1>Admin</h1>
+				<h1>Administrar Trailers</h1>
 			</div>
 			<div className='admin__actions'>
 				<Link to='/admin/create'>

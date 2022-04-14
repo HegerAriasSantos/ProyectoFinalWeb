@@ -12,7 +12,8 @@ function index() {
 
   return (
     <div className="Home">
-      <h1>Home</h1>
+    <h1>Home</h1>
+      <div className="Home__videos"> 
       {videos.map((video) => (
         <Video
           titulo={video.titulo}
@@ -25,6 +26,7 @@ function index() {
           {...video}
         />
       ))}
+      </div>
     </div>
   );
 }
