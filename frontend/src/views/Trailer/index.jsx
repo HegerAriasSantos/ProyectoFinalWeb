@@ -6,10 +6,10 @@ import "./index.scss";
 function index() {
 	const { id } = useParams();
 	const [trailer, setTrailer] = useState({});
-	const [isValidated, setIsValidated] = useState(false);
 	useEffect(() => {
 		axios.get(`http://localhost:4000/trailer/${id}`).then(res => {
 			setTrailer(res.data.body);
+      console.log( res.data.body.src);
 		});
 	}, []);
 
@@ -44,7 +44,7 @@ function index() {
 			<div className='trailer__video'>
 				<iframe
 					src={
-						false
+						trailer.src
 							? trailer.src
 							: "https://www.youtube.com/embed/z9ZqsviNASs"
 					}

@@ -52,15 +52,12 @@ function index() {
 				<Link to='/admin/create'>
 					<button>Create Trailer</button>
 				</Link>
-				<label htmlFor='search'>
-					Buscar trailer
 					<input
 						type='text'
 						id='search'
 						placeholder='search'
 						onChange={e => setVideosFilted(useFilter(videos, e.target.value))}
 					/>
-				</label>
 			</div>
 			<div className='admin__videos'>
 				<table>
@@ -69,7 +66,7 @@ function index() {
 							<th>Portada</th>
 							<th>Titulo</th>
 							<th>Actores</th>
-							<th>reseña</th>
+							<th>Reseña</th>
 							<th>Año</th>
 							<th>Acciones</th>
 						</tr>

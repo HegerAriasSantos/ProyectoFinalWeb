@@ -57,3 +57,15 @@
   }
   
 }
+
+
+@media (max-width:600px) {
+  .NavbarWrapper .Navbar{
+    flex-direction: column;
+    gap: 20px;
+    height: max-content;
+    padding: 20px 0;
+    align-items: center;
+    justify-content: center;
+  } 
+}
