@@ -1,15 +1,15 @@
 {
 	"name": "backend",
 	"version": "1.0.0",
-	"description": "",
-	"main": "index.js",
+	"description": "alguito loco ahi",
+	"main": "src/index.js",
 	"engines": {
-		"node": ">=14.0.0"
+		"node": "14.x"
 	},
 	"scripts": {
 		"start": "node src/index.js"
 	},
-	"author": "",
+	"author": "heger arias santos",
 	"license": "ISC",
 	"dependencies": {
 		"bcrypt": "^5.0.1",
