@@ -37,7 +37,7 @@ function index({ type }) {
   };
 
   return (
-    <div>
+    <div className='Form'>
       <h1>{typeTitle}</h1>
       <form className='form' autoComplete="off">
         <div className="input-container">
