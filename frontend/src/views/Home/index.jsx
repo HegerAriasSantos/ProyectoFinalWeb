@@ -5,7 +5,7 @@ import "./index.scss";
 function index() {
 	const [videos, setVideos] = useState([]);
 	useEffect(() => {
-		axios("http://localhost:4000/trailer").then(res => {
+		axios("https://proyectowebfinal-backend.herokuapp.com/trailer").then(res => {
 			setVideos(res.data.body);
 		});
 	}, []);
