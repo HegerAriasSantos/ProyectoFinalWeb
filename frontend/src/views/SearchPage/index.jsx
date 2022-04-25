@@ -19,7 +19,7 @@ function index() {
 			{results.length > 0 ? (
 				<ListOfVideos videos={results} />
 			) : (
-				<h2>No hay resultados</h2>
+				<h2 className="notFound">No hay resultados</h2>
 			)}
 		</div>
 	);
